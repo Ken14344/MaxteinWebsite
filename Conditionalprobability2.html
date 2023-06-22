@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Math Investigation Project</title>
+	<link rel="stylesheet" type="text/css" href="cp.css">
+	<!-- include SweetAlert CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="About.html">About</a></li>
+      <li><a href="problems.html">Problems</a></li>
+
+    </ul>
+  </nav>
+</head>
+<body>
+	<h1>Quiz</h1>
+  <h2>Conditional Probability </h2>
+	<form id="quiz-form">
+		<p>6. A dice is rolled twice. What is the probability that the sum of the two rolls is 7, given that the first roll resulted in a 3?</p>
+		<input type="text" id="q6" name="q6" required><br><br>
+		
+		<p>7. A committee of 5 people is randomly selected from a group of 10 men and 8 women. What is the probability that the committee consists of 3 men and 2 women, given that the first person chosen was a man?</p>
+		<input type="text" id="q7" name="q7" required><br><br>
+		
+		<p>8. A  deck of 52 playing cards is shuffled. If two cards are drawn without replacement, what is the probability that both cards are hearts, given that the first card drawn was a diamond?</p>
+		<input type="text" id="q8" name="q8" required><br><br>
+		
+		<p>9. In a class, there are 25 students: 10 boys and 15 girls. If two students are selected at random, what is the probability that both students are boys, given that the first student selected was a girl?</p>
+		<input type="text" id="q9" name="q9" required><br><br>
+		
+		<p>10. In an NBA game, a player has a 40% chance of making a three-point shot. If the player has already made two consecutive three-point shots, what is the probability that they make the third shot as well?</p>
+		<input type="text" id="q10" name="q10" required><br><br>
+        
+		<button type="submit">Submit</button>
+		<button type="submit"><a href = "problems.html">Back</a></button>
+    <br>
+	</form>
+
+	<div id="feedback"></div>
+
+	<script>
+		document.getElementById("quiz-form").addEventListener("submit", function(event) {
+			event.preventDefault();
+			checkAnswers();
+		});
+
+		function checkAnswers() {
+			var q6 = document.getElementById("q6").value;
+			var q7 = document.getElementById("q7").value;
+			var q8 = document.getElementById("q8").value;
+			var q9 = document.getElementById("q9").value;
+			var q10 = document.getElementById("q10").value;
+			var feedback = document.getElementById("feedback");
+
+			if (q6.toLowerCase() === "1/6") {
+				if (q7.toLowerCase() === "0.39") {
+					if (q8.toLowerCase() === "3/51") {
+						if (q9.toLowerCase() === "5/12") {
+							feedback.innerHTML = "Congratulations! You got all the answers correct!";
+						} else {
+							feedback.innerHTML = "Sorry, the answer to question 4 is incorrect. Please try again.";
+						}
+						if (q10.toLowerCase() === "0.40" || "40%") {
+							feedback.innerHTML = "Congratulations! You got all the answers correct!";
+						} else {
+							feedback.innerHTML = "Sorry, the answer to question 4 is incorrect. Please try again.";
+						}
+					} else {
+						feedback.innerHTML = "Sorry, the answer to question 3 is incorrect. Please try again.";
+					}
+				} else {
+					feedback.innerHTML = "Sorry, the answer to question 2 is incorrect. Please try again.";
+				}
+			} else {
+				feedback.innerHTML = "Sorry, You have incorrect answer. Please try again.";
+			}
+		}
+	</script>
+	<!-- include SweetAlert JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+	<script src="cp2.js"></script>
+</body>
+</html>
